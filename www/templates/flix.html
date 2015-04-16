@@ -1,0 +1,48 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{chat.name}}">
+  <ion-content>
+    <div class="card">
+        <div class="item item-divider">
+            Next Episode
+        </div>
+        <div class="item item-text-wrap">
+            Season 1 Episode 20
+        </div>
+        <div class="item item-divider">
+           <div class="item tabs tabs-secondary tabs-icon-right">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-android-done"></i>
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-skip-forward"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">    
+    <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            Season {{group.name}}
+          </ion-item>
+          <ion-item class="item-accordion"
+                    ng-repeat="item in group.items"
+                    ng-show="isGroupShown(group)">
+            {{item}}
+          </ion-item>
+        </div>
+      </ion-list>
+      </div>
+      
+  </ion-content>
+</ion-view>
