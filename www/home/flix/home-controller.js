@@ -1,15 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module('flix.controller', [])
 
-.controller('DashCtrl', function($scope) {})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+.controller('flixCtrl', function($scope) {
    $scope.groups = [];
   for (var i=0; i<10; i++) {
     $scope.groups[i] = {
@@ -19,6 +10,7 @@ angular.module('starter.controllers', [])
     for (var j=0; j<3; j++) {
       $scope.groups[i].items.push(i + '-' + j);
     }
+    
   }
   
   /*
@@ -36,9 +28,3 @@ angular.module('starter.controllers', [])
     return $scope.shownGroup === group;
   };
 })
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});

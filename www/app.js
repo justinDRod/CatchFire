@@ -5,7 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'home.controller', 
+                             'search.controller',
+                            'flix.controller', 'settings.controller'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -33,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab', {
     url: "/tab",
     abstract: true,
-    templateUrl: "templates/tabs.html"
+    templateUrl: "tabs/tabs.html"
   })
 
   // Each tab has its own nav history stack:
@@ -42,8 +44,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/search',
     views: {
       'tab-search': {
-        templateUrl: 'templates/tab-search.html',
-        controller: 'DashCtrl'
+        templateUrl: 'search/search.html',
+        controller: 'searchCtrl'
       }
     }
   })
@@ -52,17 +54,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/home',
       views: {
         'tab-home': {
-          templateUrl: 'templates/tab-home.html',
-          controller: 'ChatsCtrl'
+          templateUrl: 'home/home.html',
+          controller: 'homeCtrl'
         }
       }
     })
     .state('tab.flix', {
-      url: '/flix/:chatId',
+      url: '/flix/:id',
       views: {
         'tab-home': {
-          templateUrl: 'templates/flix.html',
-          controller: 'ChatDetailCtrl'
+          templateUrl: 'home/flix/flix.html',
+          controller: 'flixCtrl'
         }
       }
     })
@@ -71,8 +73,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/settings',
     views: {
       'tab-settings': {
-        templateUrl: 'templates/tab-settings.html',
-        controller: 'AccountCtrl'
+        templateUrl: 'settings/settings.html',
+        controller: 'settingsCtrl'
       }
     }
   });
